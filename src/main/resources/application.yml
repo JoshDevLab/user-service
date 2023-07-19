@@ -2,7 +2,8 @@ server:
   port: 9001
 
 spring:
-  name: user-service
+  application:
+    name: user-service
 
 eureka:
   client:
