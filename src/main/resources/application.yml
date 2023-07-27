@@ -4,6 +4,9 @@ server:
 spring:
   application:
     name: user-service
+  output:
+    ansi:
+      enabled: always
   h2:
     console:
       enable: true
