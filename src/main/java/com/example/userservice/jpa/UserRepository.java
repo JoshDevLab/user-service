@@ -8,4 +8,5 @@ public interface UserRepository {
     UserEntity save(UserEntity userEntity);
     UserEntity getUserById(String userId);
     List<UserEntity> findAllUser();
+    UserEntity findByUserId(String userId);
 }

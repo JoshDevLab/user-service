@@ -48,11 +48,21 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.CREATED).body(responseUser);
     }
 
-    @GetMapping("/users/{userId}")
+
+//    @GetMapping("/users/{userId}")
     public ResponseEntity<ResponseUser> findByIdUser(@PathVariable String userId) {
         ModelMapper mapper = new ModelMapper();
         mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         UserDto user = userService.getUserById(userId);
+        ResponseUser responseUser = mapper.map(user, ResponseUser.class);
+        return ResponseEntity.status(HttpStatus.OK).body(responseUser);
+    }
+
+    @GetMapping("/users/{userId}")
+    public ResponseEntity<ResponseUser> findByUserId(@PathVariable String userId) {
+        ModelMapper mapper = new ModelMapper();
+        mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+        UserDto user = userService.getUserByUserId(userId);
         ResponseUser responseUser = mapper.map(user, ResponseUser.class);
         return ResponseEntity.status(HttpStatus.OK).body(responseUser);
     }

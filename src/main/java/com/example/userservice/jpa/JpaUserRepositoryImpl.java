@@ -25,4 +25,9 @@ public class JpaUserRepositoryImpl implements UserRepository {
     public List<UserEntity> findAllUser() {
         return repository.findAll();
     }
+
+    @Override
+    public UserEntity findByUserId(String userId) {
+        return repository.findByUserId(userId);
+    }
 }
