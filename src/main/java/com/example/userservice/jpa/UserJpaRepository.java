@@ -1,6 +1,8 @@
 package com.example.userservice.jpa;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserJpaRepository extends CrudRepository<UserEntity, Long> {
+public interface UserJpaRepository extends JpaRepository<UserEntity, Long>, CustomUserRepository {
+
+
 }
