@@ -12,9 +12,9 @@ import java.util.HashMap;
 public class CustomHandlerException {
 
     @ExceptionHandler(EmptyResultDataAccessException.class)
-    public ResponseEntity handlerException(EmptyResultDataAccessException e) {
+    public ResponseEntity<Object> handlerException(EmptyResultDataAccessException e) {
         HashMap<String, String> result = new HashMap<>();
         result.put("message", e.getMessage());
-        return new ResponseEntity(result, HttpStatus.NOT_FOUND);
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(result);
     }
 }

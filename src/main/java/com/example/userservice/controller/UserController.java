@@ -59,7 +59,7 @@ public class UserController {
     }
 
     @GetMapping("/users/{userId}")
-    public ResponseEntity<ResponseUser> findByUserId(@PathVariable String userId) {
+    public ResponseEntity<ResponseUser> findByUserId(@PathVariable("userId") String userId) {
         ModelMapper mapper = new ModelMapper();
         mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         UserDto user = userService.getUserByUserId(userId);
